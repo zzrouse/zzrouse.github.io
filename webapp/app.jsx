@@ -128,8 +128,8 @@ zIndex: 0
                         
                         var value = "";
                         var style = [ new ol.style.Style({
-                                stroke: new ol.style.Stroke({color: "rgba(0,0,0,1.0)", lineDash: null, width: pixelsFromMm(0.26)}),
-                            fill: new ol.style.Fill({color: "rgba(163,90,176,1.0)"}),
+                                stroke: new ol.style.Stroke({color: "rgba(0,0,0,0.254901960784)", lineDash: null, width: pixelsFromMm(0.26)}),
+                            fill: new ol.style.Fill({color: "rgba(163,90,176,0.254901960784)"}),
 zIndex: 0
                             })
                             ];
