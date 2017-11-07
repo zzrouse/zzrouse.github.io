@@ -79,6 +79,46 @@ zIndex: 0
                         return allStyles;
                     };
 
+                    var textStyleCache_icww3ft_wide={}
+                    var clusterStyleCache_icww3ft_wide={}
+                    var style_icww3ft_wide = function(feature, resolution){
+                        var context = {
+            feature: feature,
+            variables: {},
+            layer: 'lyr_icww3ft_wide'
+        };
+                        
+                        var value = "";
+                        var style = [ new ol.style.Style({
+                                stroke: new ol.style.Stroke({color: "rgba(0,0,0,0.674509803922)", lineDash: null, width: pixelsFromMm(0.26)}),
+                            fill: new ol.style.Fill({color: "rgba(163,90,176,0.674509803922)"}),
+zIndex: 0
+                            })
+                            ];
+                        var allStyles = [];
+                        
+                        allStyles.push.apply(allStyles, style);
+                        return allStyles;
+                    };
+                    var selectionStyle_icww3ft_wide = function(feature, resolution){
+                        var context = {
+            feature: feature,
+            variables: {},
+            layer: 'lyr_icww3ft_wide'
+        };
+                        var value = "";
+                        var style = [ new ol.style.Style({
+                                stroke: new ol.style.Stroke({color: "rgba(255, 204, 0, 1)", lineDash: null, width: pixelsFromMm(0.26)}),
+                            fill: new ol.style.Fill({color: "rgba(255, 204, 0, 1)"}),
+zIndex: 0
+                            })
+                            ]
+                        var allStyles = [];
+                        
+                        allStyles.push.apply(allStyles, style);
+                        return allStyles;
+                    };
+
                     var textStyleCache_noaa_shoreline_la_icww={}
                     var clusterStyleCache_noaa_shoreline_la_icww={}
                     var style_noaa_shoreline_la_icww = function(feature, resolution){
@@ -108,46 +148,6 @@ zIndex: 0
                         var value = "";
                         var style = [ new ol.style.Style({
                                 stroke: new ol.style.Stroke({color: "rgba(255, 204, 0, 1)", lineDash: null, width: pixelsFromMm(0.26)}),
-zIndex: 0
-                            })
-                            ]
-                        var allStyles = [];
-                        
-                        allStyles.push.apply(allStyles, style);
-                        return allStyles;
-                    };
-
-                    var textStyleCache_icww3ft_wide={}
-                    var clusterStyleCache_icww3ft_wide={}
-                    var style_icww3ft_wide = function(feature, resolution){
-                        var context = {
-            feature: feature,
-            variables: {},
-            layer: 'lyr_icww3ft_wide'
-        };
-                        
-                        var value = "";
-                        var style = [ new ol.style.Style({
-                                stroke: new ol.style.Stroke({color: "rgba(0,0,0,0.254901960784)", lineDash: null, width: pixelsFromMm(0.26)}),
-                            fill: new ol.style.Fill({color: "rgba(163,90,176,0.254901960784)"}),
-zIndex: 0
-                            })
-                            ];
-                        var allStyles = [];
-                        
-                        allStyles.push.apply(allStyles, style);
-                        return allStyles;
-                    };
-                    var selectionStyle_icww3ft_wide = function(feature, resolution){
-                        var context = {
-            feature: feature,
-            variables: {},
-            layer: 'lyr_icww3ft_wide'
-        };
-                        var value = "";
-                        var style = [ new ol.style.Style({
-                                stroke: new ol.style.Stroke({color: "rgba(255, 204, 0, 1)", lineDash: null, width: pixelsFromMm(0.26)}),
-                            fill: new ol.style.Fill({color: "rgba(255, 204, 0, 1)"}),
 zIndex: 0
                             })
                             ]
@@ -189,6 +189,24 @@ var lyr_white_lake = new ol.layer.Vector({
                     attributes: ["SITE_CODE", "NO_OF_DOCS", "USE", "SURF_INT", "PARISH_COD", "PLANNING_D", "DEPARTMENT", "SEQUENCE_N", "FACILITY_N", "FACS_AGENC", "ADDRESS1", "LEASE_OWN_", "ADDRESS2", "CITY", "STATE", "PARISHST", "ZIP_CODE", "SEQUENCES", "ID", "SITE_COD_1"],
                     geometryType: "Polygon"
                 });
+var lyr_icww3ft_wide = new ol.layer.Vector({
+                    opacity: 0.25,
+                    source: new ol.source.Vector({
+                            format: new ol.format.GeoJSON(),
+                            url: './data/lyr_icww3ft_wide.json'
+                            }),
+                     
+                    style: style_icww3ft_wide,
+                    selectedStyle: selectionStyle_icww3ft_wide,
+                    title: "ICWW-300ft_wide",
+                    id: "ICWW_300ft_wide20171107102912589",
+                    filters: [],
+                    timeInfo: null,
+                    isSelectable: true,
+                    popupInfo: "",
+                    attributes: ["id"],
+                    geometryType: "Polygon"
+                });
 var lyr_noaa_shoreline_la_icww = new ol.layer.Vector({
                     opacity: 1.0,
                     source: new ol.source.Vector({
@@ -207,34 +225,16 @@ var lyr_noaa_shoreline_la_icww = new ol.layer.Vector({
                     attributes: ["SOURCE_ID", "SRC_DATE", "HOR_ACC", "INFORM", "ATTRIBUTE", "VER_DATE", "SRC_RESOLU", "DATA_SOURC", "EX_METH", "DAT_SET_CR", "SRC_CITA", "FIPS_ALPHA", "NOAA_Regio", "Shape_Leng"],
                     geometryType: "Line"
                 });
-var lyr_icww3ft_wide = new ol.layer.Vector({
-                    opacity: 1.0,
-                    source: new ol.source.Vector({
-                            format: new ol.format.GeoJSON(),
-                            url: './data/lyr_icww3ft_wide.json'
-                            }),
-                     
-                    style: style_icww3ft_wide,
-                    selectedStyle: selectionStyle_icww3ft_wide,
-                    title: "ICWW-300ft_wide",
-                    id: "ICWW_300ft_wide20171107102912589",
-                    filters: [],
-                    timeInfo: null,
-                    isSelectable: true,
-                    popupInfo: "",
-                    attributes: ["id"],
-                    geometryType: "Polygon"
-                });
 
 lyr_white_lake.setVisible(true);
-lyr_noaa_shoreline_la_icww.setVisible(true);
 lyr_icww3ft_wide.setVisible(true);
+lyr_noaa_shoreline_la_icww.setVisible(true);
 for (var i=0;i<baseLayers.length;i++){baseLayers[i].setVisible(false);}
 baseLayers[0].setVisible(true);
-var layersList = [lyr_white_lake,lyr_noaa_shoreline_la_icww,lyr_icww3ft_wide];layersList.unshift(baseLayersGroup);
-var layersMap  = {'lyr_white_lake':lyr_white_lake,'lyr_noaa_shoreline_la_icww':lyr_noaa_shoreline_la_icww,'lyr_icww3ft_wide':lyr_icww3ft_wide};
+var layersList = [lyr_white_lake,lyr_icww3ft_wide,lyr_noaa_shoreline_la_icww];layersList.unshift(baseLayersGroup);
+var layersMap  = {'lyr_white_lake':lyr_white_lake,'lyr_icww3ft_wide':lyr_icww3ft_wide,'lyr_noaa_shoreline_la_icww':lyr_noaa_shoreline_la_icww};
 var view = new ol.View({ maxZoom: 32, minZoom: 1, projection: 'EPSG:3857'});
-var originalExtent = [-10495355.671104, 3276449.625061, -9923701.365148, 3636118.297779];
+var originalExtent = [-10310240.602191, 3485628.888502, -10294647.032259, 3495596.979403];
 var unitsConversion = 1;
 
 var map = new ol.Map({
